@@ -12,8 +12,8 @@ def f1_score(pred: np.ndarray, test: np.ndarray) -> float:
     :return: F1-score value.
     """
     assert pred.shape == test.shape
-    pred = np.asarray(pred, dtype=np.bool)
-    test = np.asarray(test, dtype=np.bool)
+    pred = np.asarray(pred, dtype=bool)
+    test = np.asarray(test, dtype=bool)
     overlap = (pred & test).sum()
     if overlap == 0:
         return 0.0
