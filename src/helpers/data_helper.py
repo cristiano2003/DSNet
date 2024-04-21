@@ -95,7 +95,7 @@ def get_ckpt_path(model_dir: PathLike,
                   split_path: PathLike,
                   split_index: int) -> Path:
     split_path = Path(split_path)
-    return get_ckpt_dir(model_dir) / f'{split_path.name}.{split_index}.pt'
+    return get_ckpt_dir(model_dir) / f'{split_path.name}.{split_index}.ckpt'
 
 
 def load_yaml(path: PathLike) -> Any:
