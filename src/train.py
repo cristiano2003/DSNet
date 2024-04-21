@@ -55,11 +55,11 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
-    split_path = Path('../splits/tvsum.yml')
-    splits = data_helper.load_yaml(split_path)
+    main()
+    # split_path = Path('../splits/tvsum.yml')
+    # splits = data_helper.load_yaml(split_path)
     
-    split = splits[0]
-    train_set = data_helper.VideoDataset(split['train_keys'])
-    print(train_set[0][4])
-    # train_loader = data_helper.DataLoader(train_set, shuffle=True) 
+    # split = splits[0]
+    # train_set = data_helper.VideoDataset(split['train_keys'])
+    # print(train_set[0][4])
+    # # train_loader = data_helper.DataLoader(train_set, shuffle=True) 
