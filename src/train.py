@@ -4,14 +4,18 @@ from pathlib import Path
 from anchor_based.train import train as train_anchor_based
 from anchor_free.train import train as train_anchor_free
 from helpers import init_helper, data_helper
+import torch
 
 logger = logging.getLogger()
-
+import wandb
+import numpy as np
 TRAINER = {
     'anchor-based': train_anchor_based,
     'anchor-free': train_anchor_free
 }
 
+wandb.login(key='53f5746150b2ce7b0552996cb6acc3beec6e487f')
+wandb_log = wandb.init( project="Video Summarization")
 
 def get_trainer(model_type):
     assert model_type in TRAINER
@@ -51,15 +55,22 @@ def main():
         results['mean'] = float(stats.fscore)
         data_helper.dump_yaml(results, model_dir / f'{split_path.stem}.yml')
 
-        logger.info(f'Training done on {split_path.stem}. F-score: {stats.fscore:.4f}')
-
+        logger.log(f'Training done on {split_path.stem}. F-score: {stats.fscore:.4f}')
+        wandb_log.log({"F-score":stats.fscore})
 
 if __name__ == '__main__':
-    main()
-    # split_path = Path('../splits/tvsum.yml')
-    # splits = data_helper.load_yaml(split_path)
+    # main()
+    split_path = Path('../splits/tvsum.yml')
+    splits = data_helper.load_yaml(split_path)
     
-    # split = splits[0]
-    # train_set = data_helper.VideoDataset(split['train_keys'])
-    # print(train_set[0][4])
-    # # train_loader = data_helper.DataLoader(train_set, shuffle=True) 
+    split = splits[0]
+    train_set = data_helper.VideoDataset(split['train_keys'])
+    # print(train_set[10])
+    train_loader = data_helper.DataLoader(train_set, shuffle=True) 
+    n = 0
+    for _, seq, gtscore, cps, n_frames, nfps, picks, _ in train_loader:
+        seq = torch.tensor(seq, dtype=torch.float32)
+        print(seq[0].shape)
+        n += 1
+      
+        break
