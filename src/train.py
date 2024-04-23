@@ -56,7 +56,7 @@ def main():
         data_helper.dump_yaml(results, model_dir / f'{split_path.stem}.yml')
 
         logger.log(f'Training done on {split_path.stem}. F-score: {stats.fscore:.4f}')
-        wandb_log.log({"F-score":stats.fscore})
+        wandb_log.log({f"{split_path.stem}-F-score":stats.fscore})
 
 if __name__ == '__main__':
     # main()
