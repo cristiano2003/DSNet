@@ -84,7 +84,7 @@ class ModifiedGoogleNet(nn.Module):
 
     def forward(self, x):
         x = self.features(x)
-        return z
+        return x
 
 # Create an instance of the modified model
 model = ModifiedGoogleNet(pretrained_model).to("cuda")
