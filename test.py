@@ -4,7 +4,7 @@ import torch
 import torchvision.transforms as transforms
 import torch
 import torchvision.models as models
-from torchsummary import summary
+
 import torch.nn as nn
 import torch
 
