@@ -6,6 +6,7 @@ import torch
 import torchvision.models as models
 import torch.nn as nn
 
+
 def read_video(video_path):
     cap = cv2.VideoCapture(video_path)
     frames = []
@@ -79,7 +80,7 @@ model = pretrained_model
 
 
 # Remove the last three layers (avgpool, dropout, fc)
-# model = nn.Sequential(*(list(pretrained_model.children())[:-1])).to("cuda")
+model = nn.Sequential(*(list(pretrained_model.children())[:-2])).to("cuda")
 
 # Create an instance of the modified model
 
