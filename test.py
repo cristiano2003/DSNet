@@ -74,12 +74,12 @@ print("Shape of model input:", model_input.shape)
 
 
 pretrained_model = models.inception_v3(pretrained=True, aux_logits=True)
-
+model = pretrained_model
 # Define a new model without the last three layers
 
 
 # Remove the last three layers (avgpool, dropout, fc)
-model = nn.Sequential(*(list(pretrained_model.children())[:-1])).to("cuda")
+# model = nn.Sequential(*(list(pretrained_model.children())[:-1])).to("cuda")
 
 # Create an instance of the modified model
 
