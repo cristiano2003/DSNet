@@ -76,18 +76,18 @@ print("Shape of model input:", model_input.shape)
 pretrained_model = models.inception_v3(pretrained=True, aux_logits=True)
 
 # Define a new model without the last three layers
-# class ModifiedGoogleNet(nn.Module):
-#     def __init__(self, original_model):
-#         super(ModifiedGoogleNet, self).__init__()
-#         # Keep all layers except the last three
-#         self.features = nn.Sequential(*list(original_model.children())[:-3])
+class ModifiedGoogleNet(nn.Module):
+    def __init__(self, original_model):
+        super(ModifiedGoogleNet, self).__init__()
+        # Keep all layers except the last three
+        self.features = nn.Sequential(*list(original_model.children())[:-3])
 
-#     def forward(self, x):
-#         x = self.features(x)
-#         return x
+    def forward(self, x):
+        x = self.features(x)
+        return x
 
 # Create an instance of the modified model
-model =pretrained_model.to("cuda")
+model = ModifiedGoogleNet(pretrained_model).to("cuda")
 
 # Set the model to evaluation mode
 model.eval()
