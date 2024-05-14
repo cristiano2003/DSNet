@@ -87,7 +87,7 @@ model= nn.Sequential(*(list(model.children())[:-2]))
 # # Create an instance of the modified model
 
 
-]
+
 
 
 with torch.no_grad():
