@@ -4,7 +4,9 @@ import torch
 import torchvision.transforms as transforms
 import torch
 import torchvision.models as models
+from torchsummary import summary
 import torch.nn as nn
+import torch
 
 
 def read_video(video_path):
@@ -68,31 +70,31 @@ def video_matrix_to_model_input(video_matrix):
 
 
 
-model_input = video_matrix_to_model_input(augmented_frames).to("cuda")
+model_input = video_matrix_to_model_input(augmented_frames)
 
 # Check the shape of model input
 print("Shape of model input:", model_input.shape)
 
 
-pretrained_model = models.inception_v3(pretrained=True, aux_logits=True).to("cuda")
-model = pretrained_model
+model = torch.hub.load('pytorch/vision:v0.10.0', 'googlenet', pretrained=True)
+model.eval()
 # Define a new model without the last three layers
 
 
 # Remove the last three layers (avgpool, dropout, fc)
-model = nn.Sequential(*(list(pretrained_model.children())[:-2])).to("cuda")
+model= nn.Sequential(*(list(model.children())[:-2]))
 
-# Create an instance of the modified model
+# # Create an instance of the modified model
 
 
-# Set the model to evaluation mode
+# # Set the model to evaluation mode
 model.eval()
 
 
 with torch.no_grad():
     output = model(model_input)
 
-# Print the output shape
+
 print("Output shape:", output.shape)
 
 
