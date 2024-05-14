@@ -70,13 +70,13 @@ def video_matrix_to_model_input(video_matrix):
 
 
 
-model_input = video_matrix_to_model_input(augmented_frames)
+model_input = video_matrix_to_model_input(augmented_frames).to("cuda")
 
 # Check the shape of model input
 print("Shape of model input:", model_input.shape)
 
 
-model = torch.hub.load('pytorch/vision:v0.10.0', 'googlenet', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'googlenet', pretrained=True).to("cuda")
 model.eval()
 # Define a new model without the last three layers
 
@@ -87,8 +87,7 @@ model= nn.Sequential(*(list(model.children())[:-2]))
 # # Create an instance of the modified model
 
 
-# # Set the model to evaluation mode
-model.eval()
+]
 
 
 with torch.no_grad():
