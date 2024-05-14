@@ -79,7 +79,7 @@ pretrained_model = models.inception_v3(pretrained=True, aux_logits=True)
 
 
 # Remove the last three layers (avgpool, dropout, fc)
-model = nn.Sequential(*list(pretrained_model.children())).to("cuda")
+model = nn.Sequential(*list(pretrained_model.children()[:])).to("cuda")
 
 # Create an instance of the modified model
 
