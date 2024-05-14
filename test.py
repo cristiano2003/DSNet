@@ -41,7 +41,7 @@ def frames_to_matrix(frames):
     return frames_matrix
 
 # Read video into frames
-video_path = 'archive/4wU_LUjG5Ic.mp4'
+video_path = 'custom_data/videos/St Maarten Landing.mp4'
 frames = read_video(video_path)
 
 # Augment frames
