@@ -73,7 +73,7 @@ model_input = video_matrix_to_model_input(augmented_frames).to("cuda")
 print("Shape of model input:", model_input.shape)
 
 
-pretrained_model = models.inception_v3(pretrained=True, aux_logits=True)
+pretrained_model = models.inception_v3(pretrained=True, aux_logits=True).to("cuda")
 model = pretrained_model
 # Define a new model without the last three layers
 
