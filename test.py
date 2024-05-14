@@ -4,7 +4,7 @@ import torch
 import torchvision.transforms as transforms
 import torch
 import torchvision.models as models
-
+import torch.nn as nn
 
 def read_video(video_path):
     cap = cv2.VideoCapture(video_path)
