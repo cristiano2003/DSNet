@@ -73,7 +73,21 @@ model_input = video_matrix_to_model_input(augmented_frames).to("cuda")
 print("Shape of model input:", model_input.shape)
 
 
-model = models.inception_v3(pretrained=True, aux_logits=True).to("cuda")  # We disable auxiliary outputs
+pretrained_model = models.inception_v3(pretrained=True, aux_logits=False)
+
+# Define a new model without the last three layers
+class ModifiedGoogleNet(nn.Module):
+    def __init__(self, original_model):
+        super(ModifiedGoogleNet, self).__init__()
+        # Keep all layers except the last three
+        self.features = nn.Sequential(*list(original_model.children())[:-3])
+
+    def forward(self, x):
+        x = self.features(x)
+        return x
+
+# Create an instance of the modified model
+model = ModifiedGoogleNet(pretrained_model)
 
 # Set the model to evaluation mode
 model.eval()
