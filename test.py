@@ -73,7 +73,7 @@ model_input = video_matrix_to_model_input(augmented_frames).to("cuda")
 print("Shape of model input:", model_input.shape)
 
 
-pretrained_model = models.inception_v3(pretrained=True, aux_logits=False)
+pretrained_model = models.inception_v3(pretrained=True, aux_logits=True)
 
 # Define a new model without the last three layers
 class ModifiedGoogleNet(nn.Module):
