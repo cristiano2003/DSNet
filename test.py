@@ -67,13 +67,13 @@ def video_matrix_to_model_input(video_matrix):
 
 
 
-model_input = video_matrix_to_model_input(augmented_frames)
+model_input = video_matrix_to_model_input(augmented_frames).to("cuda")
 
 # Check the shape of model input
 print("Shape of model input:", model_input.shape)
 
 
-model = models.inception_v3(pretrained=True, aux_logits=True)  # We disable auxiliary outputs
+model = models.inception_v3(pretrained=True, aux_logits=True).to("cuda")  # We disable auxiliary outputs
 
 # Set the model to evaluation mode
 model.eval()
