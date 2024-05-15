@@ -7,7 +7,7 @@ import torchvision.models as models
 
 import torch.nn as nn
 import torch
-
+from src.anchor_based.dsnet import *
 
 def read_video(video_path):
     cap = cv2.VideoCapture(video_path)
@@ -96,3 +96,6 @@ print("Output shape:", output.shape)
 
 
 print(type(output))
+
+dsnet = DSNet('linear', 1024, 128, [4, 8, 12, 16], 4)
+print(dsnet(output))

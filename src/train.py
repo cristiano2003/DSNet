@@ -71,6 +71,6 @@ if __name__ == '__main__':
     for _, seq, gtscore, cps, n_frames, nfps, picks, _ in train_loader:
         seq = torch.tensor(seq, dtype=torch.float32)
         print(seq[0].shape)
-        n += 1
+        n += 1  
       
         break
