@@ -90,7 +90,7 @@ model= nn.Sequential(*(list(model.children())[:-2]))
 
 with torch.no_grad():
     output = model(model_input)
-output = torch.squeeze(output).cpu().numpy()
+output = torch.squeeze(output).unsqueeze(0)
 
 print("Output shape:", output.shape)
 
@@ -98,4 +98,4 @@ print("Output shape:", output.shape)
 print(type(output))
 
 dsnet = DSNet('linear', 1024, 128, [4, 8, 12, 16], 4)
-print(dsnet(output.unsqueeze(0)))
+print(dsnet(output))
