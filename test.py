@@ -92,7 +92,7 @@ model= nn.Sequential(*(list(model.children())[:-2]))
 
 with torch.no_grad():
     output = model(model_input)
-
+output = torch.squeeze(output)
 
 print("Output shape:", output.shape)
 
