@@ -98,4 +98,4 @@ print("Output shape:", output.shape)
 print(type(output))
 
 dsnet = DSNet('linear', 1024, 128, [4, 8, 12, 16], 4)
-print(dsnet(output))
+print(dsnet(output.unsqueeze(0)))
