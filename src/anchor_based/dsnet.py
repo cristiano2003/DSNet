@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 
-import anchor_helper
+from anchor_based import anchor_helper
 from helpers import bbox_helper
 from modules.models import build_base_model
 
