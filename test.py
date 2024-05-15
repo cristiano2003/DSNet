@@ -95,3 +95,4 @@ output = torch.squeeze(output).cpu().numpy()
 print("Output shape:", output.shape)
 
 
+print(type(output))
