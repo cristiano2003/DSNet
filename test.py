@@ -101,4 +101,4 @@ dsnet = DSNet('linear', 1024, 128, [4, 8, 12, 16], 4).to("cuda")
 output = dsnet(output)
 
 print(output)
-print(output.shape)
+print(len(output))
