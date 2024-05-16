@@ -9,7 +9,7 @@ from numpy import linalg
 from torch import nn
 from torchvision import transforms, models
 
-from kts.cpd_auto import cpd_auto
+from ..kts.cpd_auto import cpd_auto
 
 
 class FeatureExtractor(object):
