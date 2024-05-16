@@ -13,9 +13,9 @@ def main():
     print('Loading DSNet model ...')
     model = get_model(args.model, **vars(args))
     model = model.eval().to(args.device)
-    state_dict = torch.load(args.ckpt_path,
-                            map_location=lambda storage, loc: storage)
-    model.load_state_dict(state_dict)
+    # state_dict = torch.load(args.ckpt_path,
+    #                         map_location=lambda storage, loc: storage)
+    # model.load_state_dict(state_dict)
 
     # load video
     print('Preprocessing source video ...')
