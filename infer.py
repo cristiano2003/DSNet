@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import torch
 
-from helpers import init_helper, vsumm_helper, bbox_helper, video_helper
+from src.helpers import init_helper, vsumm_helper, bbox_helper, video_helper
 from modules.model_zoo import get_model
 
 
