@@ -1,7 +1,7 @@
 from typing import Iterable, List
 
 import numpy as np
-import ortools.algorithms.python.knapsack_solver as KnapsackSolver
+from  ortools.algorithms.python.knapsack_solver import KnapsackSolver
 
 
 def f1_score(pred: np.ndarray, test: np.ndarray) -> float:
