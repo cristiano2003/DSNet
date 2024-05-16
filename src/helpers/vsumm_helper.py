@@ -35,7 +35,7 @@ def knapsack(values: Iterable[int],
     :return: List of packed item indices.
     """
     knapsack_solver = KnapsackSolver(
-        KnapsackSolver.KNAPSACK_DYNAMIC_PROGRAMMING_SOLVER, 'test'
+        KnapsackSolver.KNAPSACK_BRUTE_FORCE_SOLVER, 'test'
     )
 
     values = list(values)
