@@ -1,7 +1,7 @@
 from typing import Iterable, List
 
 import numpy as np
-from ortools.algorithms.python import knapsack_solver 
+from ortools.algorithms.python import knapsack_solver as ks
 
 
 def f1_score(pred: np.ndarray, test: np.ndarray) -> float:
@@ -34,8 +34,8 @@ def knapsack(values: Iterable[int],
     :param capacity: Total capacity of the knapsack.
     :return: List of packed item indices.
     """
-    knapsack_solver = knapsack_solver.KnapsackSolver(
-        knapsack_solver.KNAPSACK_DYNAMIC_PROGRAMMING_SOLVER, 'test'
+    knapsack_solver = ks.KnapsackSolver(
+        ks.KNAPSACK_DYNAMIC_PROGRAMMING_SOLVER, 'test'
     )
 
     values = list(values)
