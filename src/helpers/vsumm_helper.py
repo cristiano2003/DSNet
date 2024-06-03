@@ -42,8 +42,8 @@ def knapsack(values: Iterable[int],
     weights = list(weights)
     capacity = int(capacity)
 
-    knapsack_solver.Init(values, [weights], [capacity])
-    knapsack_solver.Solve()
+    knapsack_solver.init(values, [weights], [capacity])
+    knapsack_solver.solve()
     packed_items = [x for x in range(0, len(weights))
                     if knapsack_solver.BestSolutionContains(x)]
 
