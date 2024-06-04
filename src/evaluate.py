@@ -4,8 +4,8 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from helpers import init_helper, data_helper, vsumm_helper, bbox_helper
-from modules.model_zoo import get_model
+from .helpers import init_helper, data_helper, vsumm_helper, bbox_helper
+from .modules.model_zoo import get_model
 
 logger = logging.getLogger()
 
