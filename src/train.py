@@ -7,15 +7,15 @@ from .helpers import init_helper, data_helper
 import torch
 
 logger = logging.getLogger()
-import wandb
+# import wandb
 import numpy as np
 TRAINER = {
     'anchor-based': train_anchor_based,
     'anchor-free': train_anchor_free
 }
 
-wandb.login(key='53f5746150b2ce7b0552996cb6acc3beec6e487f')
-wandb_log = wandb.init( project="Video Summarization")
+# wandb.login(key='53f5746150b2ce7b0552996cb6acc3beec6e487f')
+# wandb_log = wandb.init( project="Video Summarization")
 
 def get_trainer(model_type):
     assert model_type in TRAINER
@@ -56,7 +56,7 @@ def main():
         data_helper.dump_yaml(results, model_dir / f'{split_path.stem}.yml')
 
         logger.log(f'Training done on {split_path.stem}. F-score: {stats.fscore:.4f}')
-        wandb_log.log({f"{split_path.stem}-F-score":stats.fscore})
+    #    wandb_log.log({f"{split_path.stem}-F-score":stats.fscore})
 
 if __name__ == '__main__':
     # main()
