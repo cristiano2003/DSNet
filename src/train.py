@@ -1,9 +1,9 @@
 import logging
 from pathlib import Path
 
-from anchor_based.train import train as train_anchor_based
-from anchor_free.train import train as train_anchor_free
-from helpers import init_helper, data_helper
+from .anchor_based.train import train as train_anchor_based
+from .anchor_free.train import train as train_anchor_free
+from .helpers import init_helper, data_helper
 import torch
 
 logger = logging.getLogger()
