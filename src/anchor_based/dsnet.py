@@ -2,8 +2,8 @@ import torch
 from torch import nn
 
 from  . import anchor_helper
-from ..helpers import bbox_helper
-from ..modules.models import build_base_model
+from helpers import bbox_helper
+from modules.models import build_base_model
 
 
 class DSNet(nn.Module):
