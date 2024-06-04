@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from torch import nn
  
-import anchor_helper
+from . import anchor_helper
 from dsnet import DSNet
 from losses import calc_cls_loss, calc_loc_loss
 from ..evaluate import evaluate
