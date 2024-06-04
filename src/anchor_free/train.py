@@ -2,11 +2,11 @@ import logging
 
 import torch
 
-from anchor_free import anchor_free_helper
-from anchor_free.dsnet_af import DSNetAF
-from anchor_free.losses import calc_ctr_loss, calc_cls_loss, calc_loc_loss
-from evaluate import evaluate
-from helpers import data_helper, vsumm_helper
+from . import anchor_free_helper
+from .dsnet_af import DSNetAF
+from .losses import calc_ctr_loss, calc_cls_loss, calc_loc_loss
+from ..evaluate import evaluate
+from ..helpers import data_helper, vsumm_helper
 
 logger = logging.getLogger()
 
