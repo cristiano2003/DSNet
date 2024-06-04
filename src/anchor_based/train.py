@@ -3,12 +3,12 @@ import logging
 import numpy as np
 import torch
 from torch import nn
-
-from anchor_based import anchor_helper
-from anchor_based.dsnet import DSNet
-from anchor_based.losses import calc_cls_loss, calc_loc_loss
-from evaluate import evaluate
-from helpers import data_helper, vsumm_helper, bbox_helper
+ 
+import anchor_helper
+from dsnet import DSNet
+from losses import calc_cls_loss, calc_loc_loss
+from ..evaluate import evaluate
+from ..helpers import data_helper, vsumm_helper, bbox_helper
 
 logger = logging.getLogger()
 
