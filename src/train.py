@@ -59,18 +59,5 @@ def main():
     #    wandb_log.log({f"{split_path.stem}-F-score":stats.fscore})
 
 if __name__ == '__main__':
-    # main()
-    split_path = Path('../splits/tvsum.yml')
-    splits = data_helper.load_yaml(split_path)
+    main()
     
-    split = splits[0]
-    train_set = data_helper.VideoDataset(split['train_keys'])
-    # print(train_set[10])
-    train_loader = data_helper.DataLoader(train_set, shuffle=True) 
-    n = 0
-    for _, seq, gtscore, cps, n_frames, nfps, picks, _ in train_loader:
-        seq = torch.tensor(seq, dtype=torch.float32)
-        print(seq[0].shape)
-        n += 1  
-      
-        break
